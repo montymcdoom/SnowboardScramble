@@ -7,12 +7,13 @@ using UnityEngine;
 public class DustTrail : MonoBehaviour
 {
     [SerializeField] ParticleSystem dustTrail;
-    // Start is called before the first frame update
+        
     void OnCollisionEnter2D(Collision2D other) 
     {
         if(other.gameObject.tag == "Ground")
         {
             dustTrail.Play();
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -21,6 +22,7 @@ public class DustTrail : MonoBehaviour
         if(other.gameObject.tag == "Ground")
         {
             dustTrail.Stop();
+            GetComponent<AudioSource>().Stop();
         }
     }
 
